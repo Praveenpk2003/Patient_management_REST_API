@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Allow both /api/patients and /patients
+RewriteRule ^patients/?$ api/index.php?request=patients [QSA,L]
+RewriteRule ^patients/(.*)$ api/index.php?request=patients/$1 [QSA,L]
+
+# Existing rule (keep this)
+RewriteRule ^api/(.*)$ api/index.php?request=$1 [QSA,L]
